@@ -8,8 +8,8 @@ provisioner:
 platforms:
   - name: ubuntu-12.04
   - name: ubuntu-14.04
-  - name: centos-6
-  - name: centos-7
+  - name: centos-centos6
+  - name: centos-centos7
 
 suites:
   - name: default
