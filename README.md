@@ -6,7 +6,7 @@
 
 ***CircleCI***
 
-[![CircleCI Status](https://img.shields.io/circleci/project/RoboticCheese/test-kitchen-test-chef.svg)][circleci]
+[![CircleCI Status](https://img.shields.io/circleci/token/de395e3022fbcfcd6a017ba739d4fe476a413998/project/RoboticCheese/test-kitchen-test-chef/master.svg)][circleci]
 
 ***Wercker***
 

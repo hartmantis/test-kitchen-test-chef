@@ -1,6 +1,6 @@
 box: ruby
 
-build:
+dev:
   steps:
     - script:
       name: chefdk
@@ -8,6 +8,9 @@ build:
     - script:
       name: bundle
       code: chef exec bundle install
+
+build:
+  steps:
     - script:
       name: kitchen
       code: chef exec bundle exec kitchen verify
