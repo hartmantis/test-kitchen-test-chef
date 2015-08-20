@@ -2,6 +2,11 @@ machine:
   services:
     - docker
 
+dependencies:
+  override:
+    - curl -L https://www.chef.io/chef/install.sh | sudo bash -s -- -P chefdk
+    - chef exec bundle install
+
 test:
   override:
-    - bundle exec kitchen verify
+    - chef exec bundle exec kitchen test
