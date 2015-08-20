@@ -15,10 +15,11 @@ install:
 before_script:
 
 script:
-  - chef exec bundle exec kitchen test
+  # Docker build environment doesn't have permission to destroy containers
+  - chef exec bundle exec kitchen verify
 
 after_script:
-  - chef exec bundle exec kitchen destroy
+  # - chef exec bundle exec kitchen destroy
 
 env:
   global:

@@ -9,4 +9,5 @@ dependencies:
 
 test:
   override:
-    - chef exec bundle exec kitchen test
+    # Docker build environment doesn't have permission to destroy containers
+    - chef exec bundle exec kitchen verify
