@@ -1,0 +1,25 @@
+language: ruby
+
+sudo: required
+services:
+  - docker
+
+branches:
+  only:
+    - master
+
+install:
+  - curl -L https://www.chef.io/chef/install.sh | sudo bash -s -- -P chefdk
+  - chef exec bundle install
+
+before_script:
+
+script:
+  - chef exec bundle exec kitchen test
+
+after_script:
+  - chef exec bundle exec kitchen destroy
+
+env:
+  global:
+    # - KITCHEN_LOCAL_YAML=.kitchen.travis.yml
