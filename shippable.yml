@@ -1,0 +1,6 @@
+language: ruby
+
+script:
+  - curl -L https://www.chef.io/chef/install.sh | sudo bash -s -- -P chefdk
+  - chef exec bundle install
+  - chef exec bundle exec kitchen verify
