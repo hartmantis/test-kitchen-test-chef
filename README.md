@@ -13,8 +13,7 @@ provided.
 
 ***CircleCI***
 
-[![CircleCI Status](https://circleci.com/gh/RoboticCheese/test-kitchen-test-chef.svg?style=svg&circle-token=54e7f6f3095c73afdd56083e01f95a8faf6699a6)][circleci]
-[![CircleCI Status](https://img.shields.io/circleci/token/de395e3022fbcfcd6a017ba739d4fe476a413998/project/RoboticCheese/test-kitchen-test-chef/master.svg)][circleci]
+[![CircleCI Status](https://img.shields.io/circleci/project/RoboticCheese/test-kitchen-test-chef.svg)][circleci]
 
 ***Wercker***
 
