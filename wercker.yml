@@ -1,4 +1,4 @@
-box: ruby
+box: jpetazzo/dind
 
 dev:
   steps:
