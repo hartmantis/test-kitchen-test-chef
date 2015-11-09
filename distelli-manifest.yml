@@ -1,0 +1,17 @@
+roboticcheese/test-kitchen-test:
+  PkgInclude:
+    - '*'
+  Build:
+    - curl -L https://www.chef.io/chef/install.sh | sudo bash -s -- -P chefdk
+    - chef exec bundle install
+    - chef exec rake
+    - chef exec kitchen test
+  PreInstall:
+    - echo "Begin PreInstall"
+
+  PostInstall:
+    - echo "Begin PostInstall"
+  Exec:
+    #- source ~/.rvm/scripts/rvm
+    #- rvm use 1.9.3
+    #- ./bundle/bin/thin start -p $PORT -e $STAGE
