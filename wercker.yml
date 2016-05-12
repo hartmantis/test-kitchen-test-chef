@@ -1,6 +1,4 @@
-box: jpetazzo/dind
-
-dev:
+build:
   steps:
     - script:
       name: chefdk
@@ -8,9 +6,6 @@ dev:
     - script:
       name: bundle
       code: chef exec bundle install
-
-build:
-  steps:
     - script:
       name: kitchen
       code: chef exec bundle exec kitchen verify
