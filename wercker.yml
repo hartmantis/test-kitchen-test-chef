@@ -1,3 +1,5 @@
+box: jpetazzo/dind
+
 build:
   steps:
     - script:
