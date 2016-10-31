@@ -1,4 +1,4 @@
-box: jpetazzo/dind
+box: docker:dind
 
 build:
   steps:
@@ -10,4 +10,4 @@ build:
       code: chef exec bundle install
     - script:
       name: kitchen
-      code: chef exec bundle exec kitchen verify
+      code: chef exec bundle exec kitchen test
