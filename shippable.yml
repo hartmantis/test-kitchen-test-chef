@@ -1,8 +1,8 @@
 language: ruby
+rvm: 2.3.1
 
 before_install:
-  - curl -L https://www.chef.io/chef/install.sh | sudo bash -s -- -P chefdk
-  - chef exec bundle install
+  - bundle install
 
 script:
-  - chef exec bundle exec kitchen verify
+  - bundle exec kitchen test
