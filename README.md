@@ -24,6 +24,13 @@ Works only with kitchen-docker, not kitchen-dokken:
 >>>>>>     supported by the lxc driver
 ```
 
+***SemaphoreCI***
+
+Works with kitchen-docker after you flip the platform switch to one that has
+Docker support.
+
+[![Semaphore CI Status](https://semaphoreci.com/api/v1/roboticcheese/test-kitchen-test-chef/branches/master/badge.svg)](https://semaphoreci.com/roboticcheese/test-kitchen-test-chef)
+
 ***Shippable***
 
 [![Shippable Status](https://img.shields.io/shippable/5507a81d5ab6cc1352a13510.svg)][shippable]
@@ -48,11 +55,6 @@ Does not allow sudo access:
 
 https://documentation.codeship.com/faq/root-level-access/
 
-***SemaphoreCI***
-
-```
-An error occurred trying to connect: Get http://%2Fvar%2Frun%2Fdocker.sock/v1.24/containers/json: read unix @->/var/run/docker.sock: read: connection reset by peer
-```
 
 [travis]: https://travis-ci.org/RoboticCheese/test-kitchen-test-chef
 [circleci]: https://circleci.com/gh/RoboticCheese/test-kitchen-test-chef
