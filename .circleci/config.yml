@@ -1,0 +1,71 @@
+version: 2.1
+
+commands:
+  prep:
+    description: Install the Chef Development Kit and gem dependencies
+    steps:
+      - run: curl https://omnitruck.chef.io/install.sh | sudo bash -s -- -c current -P chefdk
+      - run: chef exec bundle install
+  run_kitchen:
+    description: Run Test Kitchen (via Microwave) for a given suite and platform
+    parameters:
+      suite:
+        description: The Kitchen suite to run
+        type: string
+        default: default
+      platform:
+        description: The Kitchen platform to run
+        type: string
+    steps:
+      - run: chef exec microwave test <<parameters.suite>>-<<parameters.platform>>
+
+jobs:
+  unit:
+    machine: true
+    steps:
+      - checkout
+      - prep
+      - run: chef exec delivery local all
+  default_ubuntu_1804:
+    machine: true
+    steps:
+      - checkout
+      - prep
+      - run_kitchen:
+          suite: default
+          platform: ubuntu-1804
+  default_ubuntu_1604:
+    machine: true
+    steps:
+      - checkout
+      - prep
+      - run_kitchen:
+          suite: default
+          platform: ubuntu-1604
+  default_ubuntu_1404:
+    machine: true
+    steps:
+      - checkout
+      - prep
+      - run_kitchen:
+          suite: default
+          platform: ubuntu-1404
+  default_macos:
+    macos:
+      xcode: 10
+    steps:
+      - checkout
+      - prep
+      - run: cp .kitchen.exec.yml .kitchen.local.yml
+      - run_kitchen:
+          suite: default
+          platform: local
+
+workflows:
+  test:
+    jobs:
+      - unit
+      - default_ubuntu_1804
+      - default_ubuntu_1604
+      - default_ubuntu_1404
+      - default_macos
