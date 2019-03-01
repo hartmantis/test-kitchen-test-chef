@@ -1,26 +1,29 @@
+dist: xenial
 language: ruby
-
-sudo: required
-services:
-  - docker
+rvm: system
 
 branches:
   only:
     - master
 
+sudo: required
+
+services:
+  - docker
+
 install:
-  - curl -L https://www.chef.io/chef/install.sh | sudo bash -s -- -P chefdk
+  - curl https://omnitruck.chef.io/install.sh | sudo bash -s -- -c current -P chefdk
   - chef exec bundle install
 
-before_script:
+env:
+  - SUITE=unit
+  - SUITE=default PLATFORM=ubuntu-1804
+  - SUITE=default PLATFORM=ubuntu-1604
+  - SUITE=default PLATFORM=ubuntu-1404
 
 script:
-  # Docker build environment doesn't have permission to destroy containers
-  - chef exec bundle exec kitchen verify
+  - if test "$SUITE" = "unit"; then chef exec delivery local all; fi
+  - if test "$SUITE" != "unit"; then chef exec microwave test $SUITE-$PLATFORM; fi
 
-after_script:
-  # - chef exec bundle exec kitchen destroy
-
-env:
-  global:
-    # - KITCHEN_LOCAL_YAML=.kitchen.travis.yml
+stages:
+  - name: test

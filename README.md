@@ -1,7 +1,7 @@
-# test-kitchen-test
+# Test Kitchen Test Cookbook README
 
 This cookbook keeps track of all the different CI services I'm aware of and
-which ones support using Docker and the kitchen-docker driver within a build.
+which ones support using Docker and the kitchen-dokken driver within a build.
 
 Currently, that subset of hosted CI services seems to be only CircleCI and, as
 of August, 2015, TravisCI. Working example Test Kitchen and CI configs are
@@ -60,3 +60,7 @@ https://documentation.codeship.com/faq/root-level-access/
 [circleci]: https://circleci.com/gh/RoboticCheese/test-kitchen-test-chef
 [wercker]: https://app.wercker.com/project/bykey/7b1fd8e453150fe10609376d44e7442b
 [shippable]: https://app.shippable.com/subscriptions/5507a81d5ab6cc1352a13510
+
+## Maintainers
+
+- Jonathan Hartman <j@hartman.io>
