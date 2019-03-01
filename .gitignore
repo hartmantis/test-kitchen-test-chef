@@ -1,5 +1,4 @@
 .vagrant
-Berksfile.lock
 *~
 *#
 .#*
@@ -7,10 +6,31 @@ Berksfile.lock
 .*.sw[a-z]
 *.un~
 
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
 # Bundler
 Gemfile.lock
+gems.locked
 bin/*
 .bundle/*
 
+# RuboCop
+.rubocop-http*
+
+# ChefSpec
+coverage/
+
+# Test Kitchen
 .kitchen/
 .kitchen.local.yml
+
+# Chef
+Berksfile.lock
+.zero-knife.rb
+Policyfile.lock.json
+
+# TravisCI
+.travis/*
+!.travis/configs.tar.gz.enc

@@ -1,8 +1,5 @@
-# Encoding: UTF-8
+# frozen_string_literal: true
 
-source 'https://rubygems.org'
-
-gem 'chef', '>= 11'
-gem 'berkshelf'
-gem 'test-kitchen'
-gem 'kitchen-docker'
+require 'open-uri'
+instance_eval(open('https://raw.githubusercontent.com/roboticcheese/' \
+                   'shared-chef/master/files/Gemfile').read)
