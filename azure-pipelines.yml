@@ -1,0 +1,48 @@
+trigger:
+  - master
+
+jobs:
+  - job: unit
+    pool:
+      vmImage: ubuntu-16.04
+    steps:
+      - script: curl https://omnitruck.chef.io/install.sh | sudo bash -s -- -c current -P chefdk
+      - script: chef exec bundle install
+      - script: chef exec delivery local all
+  - job: ubuntu_1804
+    pool:
+      vmImage: ubuntu-16.04
+    steps:
+      - script: curl https://omnitruck.chef.io/install.sh | sudo bash -s -- -c current -P chefdk
+      - script: chef exec bundle install
+      - script: chef exec microwave test default-ubuntu-1804
+  - job: ubuntu_1604
+    pool:
+      vmImage: ubuntu-16.04
+    steps:
+      - script: curl https://omnitruck.chef.io/install.sh | sudo bash -s -- -c current -P chefdk
+      - script: chef exec bundle install
+      - script: chef exec microwave test default-ubuntu-1604
+  - job: ubuntu_1404
+    pool:
+      vmImage: ubuntu-16.04
+    steps:
+      - script: curl https://omnitruck.chef.io/install.sh | sudo bash -s -- -c current -P chefdk
+      - script: chef exec bundle install
+      - script: chef exec microwave test default-ubuntu-1404
+  - job: windows
+    pool:
+      vmImage: windows-2019
+    steps:
+      - script: choco install chefdk
+      - script: chef exec bundle install
+      - script: cp .kitchen.exec.yml .kitchen.local.yml
+      - script: chef exec microwave test
+  - job: macos
+    pool:
+      vmImage: macos-10.13
+    steps:
+      - script: brew cask install chef/chef/chefdk
+      - script: chef exec bundle install
+      - script: cp .kitchen.exec.yml .kitchen.local.yml
+      - script: chef exec microwave test

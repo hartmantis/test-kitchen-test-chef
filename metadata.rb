@@ -13,3 +13,5 @@ source_url 'https://github.com/roboticcheese/test-kitchen-test-chef'
 issues_url 'https://github.com/roboticcheese/test-kitchen-test-chef/issues'
 
 supports 'ubuntu'
+supports 'windows'
+supports 'mac_os_x'
